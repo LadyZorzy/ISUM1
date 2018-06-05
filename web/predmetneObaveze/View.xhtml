@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPredmetneObavezeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_sifraPredmeta}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.sifraPredmeta}" title="#{bundle.ViewPredmetneObavezeTitle_sifraPredmeta}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_nazivPredmeta}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.nazivPredmeta}" title="#{bundle.ViewPredmetneObavezeTitle_nazivPredmeta}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_predavac}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.predavac}" title="#{bundle.ViewPredmetneObavezeTitle_predavac}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_brojPoenaZadaci}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.brojPoenaZadaci}" title="#{bundle.ViewPredmetneObavezeTitle_brojPoenaZadaci}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_brojPoenaTestovi}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.brojPoenaTestovi}" title="#{bundle.ViewPredmetneObavezeTitle_brojPoenaTestovi}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_brojPoenaProjekat}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.brojPoenaProjekat}" title="#{bundle.ViewPredmetneObavezeTitle_brojPoenaProjekat}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_prisustvo}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.prisustvo}" title="#{bundle.ViewPredmetneObavezeTitle_prisustvo}"/>
+                    <h:outputText value="#{bundle.ViewPredmetneObavezeLabel_ocena}"/>
+                    <h:outputText value="#{predmetneObavezeController.selected.ocena}" title="#{bundle.ViewPredmetneObavezeTitle_ocena}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{predmetneObavezeController.destroyAndView}" value="#{bundle.ViewPredmetneObavezeDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPredmetneObavezeEditLink}"/>
+                <br />
+                <h:commandLink action="#{predmetneObavezeController.prepareCreate}" value="#{bundle.ViewPredmetneObavezeCreateLink}" />
+                <br />
+                <h:commandLink action="#{predmetneObavezeController.prepareList}" value="#{bundle.ViewPredmetneObavezeShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPredmetneObavezeIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

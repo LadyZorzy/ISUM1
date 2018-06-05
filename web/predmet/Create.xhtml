@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePredmetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_sifraPredmeta}" for="sifraPredmeta" />
+                    <h:inputText id="sifraPredmeta" value="#{predmetController.selected.sifraPredmeta}" title="#{bundle.CreatePredmetTitle_sifraPredmeta}" required="true" requiredMessage="#{bundle.CreatePredmetRequiredMessage_sifraPredmeta}"/>
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_nazivPredmeta}" for="nazivPredmeta" />
+                    <h:inputText id="nazivPredmeta" value="#{predmetController.selected.nazivPredmeta}" title="#{bundle.CreatePredmetTitle_nazivPredmeta}" required="true" requiredMessage="#{bundle.CreatePredmetRequiredMessage_nazivPredmeta}"/>
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_predavac}" for="predavac" />
+                    <h:inputText id="predavac" value="#{predmetController.selected.predavac}" title="#{bundle.CreatePredmetTitle_predavac}" required="true" requiredMessage="#{bundle.CreatePredmetRequiredMessage_predavac}"/>
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_espb}" for="espb" />
+                    <h:inputText id="espb" value="#{predmetController.selected.espb}" title="#{bundle.CreatePredmetTitle_espb}" required="true" requiredMessage="#{bundle.CreatePredmetRequiredMessage_espb}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{predmetController.create}" value="#{bundle.CreatePredmetSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{predmetController.prepareList}" value="#{bundle.CreatePredmetShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePredmetIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

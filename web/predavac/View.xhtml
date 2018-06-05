@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPredavacTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPredavacLabel_id}"/>
+                    <h:outputText value="#{predavacController.selected.id}" title="#{bundle.ViewPredavacTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_ime}"/>
+                    <h:outputText value="#{predavacController.selected.ime}" title="#{bundle.ViewPredavacTitle_ime}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_prezime}"/>
+                    <h:outputText value="#{predavacController.selected.prezime}" title="#{bundle.ViewPredavacTitle_prezime}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_username}"/>
+                    <h:outputText value="#{predavacController.selected.username}" title="#{bundle.ViewPredavacTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_password}"/>
+                    <h:outputText value="#{predavacController.selected.password}" title="#{bundle.ViewPredavacTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_email}"/>
+                    <h:outputText value="#{predavacController.selected.email}" title="#{bundle.ViewPredavacTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewPredavacLabel_predmet}"/>
+                    <h:outputText value="#{predavacController.selected.predmet}" title="#{bundle.ViewPredavacTitle_predmet}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{predavacController.destroyAndView}" value="#{bundle.ViewPredavacDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPredavacEditLink}"/>
+                <br />
+                <h:commandLink action="#{predavacController.prepareCreate}" value="#{bundle.ViewPredavacCreateLink}" />
+                <br />
+                <h:commandLink action="#{predavacController.prepareList}" value="#{bundle.ViewPredavacShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPredavacIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_brojIndexa}" for="brojIndexa" />
+                    <h:inputText id="brojIndexa" value="#{studentController.selected.brojIndexa}" title="#{bundle.CreateStudentTitle_brojIndexa}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_brojIndexa}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_ime}" for="ime" />
+                    <h:inputText id="ime" value="#{studentController.selected.ime}" title="#{bundle.CreateStudentTitle_ime}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_prezime}" for="prezime" />
+                    <h:inputText id="prezime" value="#{studentController.selected.prezime}" title="#{bundle.CreateStudentTitle_prezime}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{studentController.selected.username}" title="#{bundle.CreateStudentTitle_username}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{studentController.selected.password}" title="#{bundle.CreateStudentTitle_password}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{studentController.selected.email}" title="#{bundle.CreateStudentTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_skolskaGodina}" for="skolskaGodina" />
+                    <h:inputText id="skolskaGodina" value="#{studentController.selected.skolskaGodina}" title="#{bundle.CreateStudentTitle_skolskaGodina}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_smer}" for="smer" />
+                    <h:inputText id="smer" value="#{studentController.selected.smer}" title="#{bundle.CreateStudentTitle_smer}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{studentController.create}" value="#{bundle.CreateStudentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{studentController.prepareList}" value="#{bundle.CreateStudentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateStudentIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

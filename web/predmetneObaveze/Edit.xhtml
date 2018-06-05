@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPredmetneObavezeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_sifraPredmeta}" for="sifraPredmeta" />
+                    <h:inputText id="sifraPredmeta" value="#{predmetneObavezeController.selected.sifraPredmeta}" title="#{bundle.EditPredmetneObavezeTitle_sifraPredmeta}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_sifraPredmeta}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_nazivPredmeta}" for="nazivPredmeta" />
+                    <h:inputText id="nazivPredmeta" value="#{predmetneObavezeController.selected.nazivPredmeta}" title="#{bundle.EditPredmetneObavezeTitle_nazivPredmeta}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_nazivPredmeta}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_predavac}" for="predavac" />
+                    <h:inputText id="predavac" value="#{predmetneObavezeController.selected.predavac}" title="#{bundle.EditPredmetneObavezeTitle_predavac}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_predavac}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_brojPoenaZadaci}" for="brojPoenaZadaci" />
+                    <h:inputText id="brojPoenaZadaci" value="#{predmetneObavezeController.selected.brojPoenaZadaci}" title="#{bundle.EditPredmetneObavezeTitle_brojPoenaZadaci}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_brojPoenaZadaci}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_brojPoenaTestovi}" for="brojPoenaTestovi" />
+                    <h:inputText id="brojPoenaTestovi" value="#{predmetneObavezeController.selected.brojPoenaTestovi}" title="#{bundle.EditPredmetneObavezeTitle_brojPoenaTestovi}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_brojPoenaTestovi}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_brojPoenaProjekat}" for="brojPoenaProjekat" />
+                    <h:inputText id="brojPoenaProjekat" value="#{predmetneObavezeController.selected.brojPoenaProjekat}" title="#{bundle.EditPredmetneObavezeTitle_brojPoenaProjekat}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_brojPoenaProjekat}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_prisustvo}" for="prisustvo" />
+                    <h:inputText id="prisustvo" value="#{predmetneObavezeController.selected.prisustvo}" title="#{bundle.EditPredmetneObavezeTitle_prisustvo}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_prisustvo}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetneObavezeLabel_ocena}" for="ocena" />
+                    <h:inputText id="ocena" value="#{predmetneObavezeController.selected.ocena}" title="#{bundle.EditPredmetneObavezeTitle_ocena}" required="true" requiredMessage="#{bundle.EditPredmetneObavezeRequiredMessage_ocena}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{predmetneObavezeController.update}" value="#{bundle.EditPredmetneObavezeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPredmetneObavezeViewLink}"/>
+                <br />
+                <h:commandLink action="#{predmetneObavezeController.prepareList}" value="#{bundle.EditPredmetneObavezeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPredmetneObavezeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
